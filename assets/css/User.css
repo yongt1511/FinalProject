@@ -1,0 +1,59 @@
+.logo {
+  justify-content: center;
+  display: flex;
+  margin-top: 15px;
+}
+
+.modal-header {
+  justify-content: center;
+}
+
+.rounded-4 {
+  border-radius: .5rem;
+  margin-top: 10px;
+}
+
+label {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.forget {
+  color: blue;
+  justify-content: space-between;
+  display: flex;
+  float: right;
+}
+
+.form-floating small {
+  visibility: hidden;
+}
+
+.form-floating.success input {
+  visibility: visible;
+  border-color: #2ecc71;
+}
+
+.form-floating.error input {
+  border-color: #e74c3c;
+}
+
+.form-floating.error small {
+  visibility: visible;
+  color: #e74c3c
+}
+
+.creat-account {
+  text-align: center;
+}
+nav li:hover,
+nav li:active{
+  text-decoration: none;
+  transition: box-shadow .3s;
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+  color: white ;
+}
+li.nav-item::marker{
+  list-style-type: none !important;
+  color: white;
+}
