@@ -20,11 +20,7 @@
   display: none
 ;
 }
-.category{
-  color: white;
-  padding-left: 5px;
 
-}
 .user{
   color: white;
   padding-left: 5px;
@@ -254,9 +250,6 @@ body{
 }
 .btn-detail{
   justify-content: left !important;
-}
-input{
-  text-align: right;
 }
 .addcartdetail{
   margin-left: 20px !important;

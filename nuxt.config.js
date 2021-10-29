@@ -3,8 +3,7 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - FinalProject',
-    title: 'FinalProject',
+    title: 'Ngoy',
     htmlAttrs: {
       lang: 'en'
     },
@@ -32,7 +31,7 @@ export default {
       }
     ]
   },
-
+  loading: { colors: 'red', height: '5px' },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/css/bootstrap.css'
@@ -58,10 +57,13 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next'
   ],
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: 'https://finalproject-cd660-default-rtdb.asia-southeast1.firebasedatabase.app'
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -78,7 +80,34 @@ export default {
       }
     }
   },
-
+  env: {
+    baseURL: 'https://finalproject-cd660-default-rtdb.asia-southeast1.firebasedatabase.app',
+    fbApiKey: 'AIzaSyC3D_HowJn1BrXGmW4GNvaBIvkgv-WJKig'
+  },
+  router: {
+    middleware: ['router-log', 'check-auth']
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {}
+  build: {},
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: 'token',
+          global: true,
+          required: true,
+          type: 'Bearer'
+        },
+        user: {
+          property: 'user',
+          autoFetch: true
+        },
+        endpoints: {
+          login: { url: '/sessions', method: 'post' },
+          logout: { url: '/api/auth/logout', method: 'post' },
+          user: { url: '/sessions/user', method: 'get' }
+        }
+      }
+    }
+  }
 }

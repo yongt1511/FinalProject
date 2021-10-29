@@ -1,6 +1,7 @@
 const form = document.getElementById('form')
 const email = document.getElementById('email')
 const password = document.getElementById('password')
+const repassword = document.getElementById('re-password')
 
 function setErrorFor (input, message) {
   const formControl = input.parentElement
@@ -19,9 +20,9 @@ function setSuccessFor (input) {
 function checkInput () {
   const emailValue = email.value.trim()
   const passwordValue = password.value.trim()
-
+  const repasswordValue = repassword.value.trim()
   if (emailValue === '') {
-    setErrorFor(email, 'Tên đăng nhập không được để trống')
+    setErrorFor(email, 'Email đăng nhập không được để trống')
   } else {
     setSuccessFor(email)
   }
@@ -29,6 +30,13 @@ function checkInput () {
     setErrorFor(password, 'Mật khẩu không được để trống')
   } else {
     setSuccessFor(password)
+  }
+  if (repasswordValue === '') {
+    setErrorFor(repassword, 'Mật khẩu không được để trống')
+  } else if (repasswordValue !== passwordValue) {
+    setErrorFor(repassword, 'Mật khẩu không trùng khớp')
+  } else {
+    setSuccessFor(repassword)
   }
 }
 

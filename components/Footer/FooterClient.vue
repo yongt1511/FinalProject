@@ -1,5 +1,5 @@
 <template>
-  <v-footer>
+  <footer>
     <div class="footerhomepage">
       <div class="col-md-12 footer__box-contact">
         <div class="container">
@@ -128,7 +128,7 @@
         </div>
       </div>
     </div>
-  </v-footer>
+  </footer>
 </template>
 
 <script>

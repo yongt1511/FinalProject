@@ -6,9 +6,9 @@
     <v-container>
       <br>
       <v-col>
-        <v-title class="text-h4 title">
+        <div class="text-h4 title">
           <strong>{{ dataCategory.name }}</strong>
-        </v-title>
+        </div>
       </v-col>
       <v-row>
         <v-col
@@ -32,8 +32,7 @@
               <div class="card shadow-sm">
                 <v-img
                   :src="product.image"
-                >
-                </v-img>
+                />
                 <div class="card-body">
                   <p class="card-text">
                     {{ product.name }}
@@ -69,6 +68,11 @@ export default {
       dataProduct: []
     }
   },
+  head () {
+    return {
+      title: `${this.dataCategory.name}`
+    }
+  },
   watch: {
     '$route' (to) {
       this.id = to.params.id
@@ -90,7 +94,6 @@ export default {
         axios.get(`http://localhost:3004/category/${this.id}`)
           .then(({ data }) => {
             this.dataCategory = data
-            console.log(this.dataCategory.name)
             resolve()
           }).catch(error => reject(error))
       })
@@ -100,7 +103,6 @@ export default {
         axios.get(`http://localhost:3004/product/?category=${this.id}`)
           .then(({ data }) => {
             this.dataProduct = data
-            console.log(this.dataProduct)
             resolve()
           }).catch(error => reject(error))
       })

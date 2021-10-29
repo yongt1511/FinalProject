@@ -1,7 +1,7 @@
 <template>
   <v-img
     dark
-    src="https://pixabay.com/get/gdd3ca45e98e77549920a7164a7959d9ad435bd1a308ad1b0e0068c70df115331e3cee985ce701bd85dd1d57c42bc994a1de96a003ce2570be6481d2cb4f0e294_1280.jpg"
+    src="https://cdn.pixabay.com/photo/2016/03/05/21/59/barbecue-1239146_960_720.jpg"
   >
     <v-theme-provider dark>
       <v-container fill-height>
