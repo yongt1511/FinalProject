@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-parallax height="1000" src="https://pixabay.com/get/g8557ee44c5958afd590917876bdf3acd0b56dcd640585fc7077124b2db742778d58a2c6cc29bef7879c2cd831b94cb3a.jpg">
+    <v-img :src="img">
       <div class="modal-dialog" role="document">
         <div class="modal-content rounded-5 shadow">
           <div class="logo">
@@ -20,12 +20,12 @@
             <form id="form" class="form">
               <div class="form-floating mb-3 ">
                 <input
-                  id="username"
-                  v-model="user.name"
+                  id="email"
+                  v-model="email"
                   type="text"
                   class="form-control rounded-4"
                 >
-                <label for="username">Email, Tên đăng nhập</label>
+                <label for="email">Email, Tên đăng nhập</label>
                 <i class="fa fa-check-circle" aria-hidden="true" />
                 <i class="fa fa-exclamation-circle" />
                 <small>Error Massage</small>
@@ -33,7 +33,7 @@
               <div class="form-floating mb-3 ">
                 <input
                   id="password"
-                  v-model="user.password"
+                  v-model="password"
                   type="password"
                   class="form-control rounded-4"
                 >
@@ -63,27 +63,18 @@
                 Đăng nhập bằng số điện thoại
               </button>
               <hr>
-              <div class="creat-account">
-                <router-link
-                  to="/signup"
-                  tag="li"
-                  class="nav-item"
-                  active-class="active"
-                  exact
-                >
-                  <a href="">Tạo tài khoản </a>
-                </router-link>
-              </div>
+              <v-tab class="register" to="/register">
+                Tạo tài khoản
+              </v-tab>
             </form>
           </div>
         </div>
       </div>
-    </v-parallax>
+    </v-img>
   </v-app>
 </template>
 
 <script>
-import axios from 'axios'
 
 import('../../assets/js/validationLogin')
 export default {
@@ -91,111 +82,62 @@ export default {
   layout: 'LayoutsWhite',
   data () {
     return {
-      dataUser: {
-        name: '',
-        password: ''
-      },
-      user: {
-        name: '',
-        password: ''
-      }
+      img: 'https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197_960_720.jpg',
+      isLogin: true,
+      email: '',
+      password: ''
+    }
+  },
+  computed: {
+    role () {
+      return this.$store.state.role
     }
   },
   created () {
   },
   methods: {
     btnLogin () {
-      return new Promise((resolve, reject) => {
-        axios.get(' http://localhost:3004/user')
-          .then((data) => {
-            resolve()
-          }).catch(error => reject(error))
+      this.$store.dispatch('authenticateUser', {
+        email: this.email,
+        password: this.password,
+        isLogin: this.isLogin
+      }).then(() => {
+        if (this.$store.state.role === 'aOAEseP0jkYQVSbOlVuEiNnqMeI2') {
+          this.$router.push('/Admin')
+        } else {
+          this.$router.push('/Homepage')
+        }
+      }).catch((error) => {
+        if (error.data.error.message === 'INVALID_PASSWORD') {
+          alert('Sai mật khẩu')
+        } else if (error.data.error.message === 'EMAIL_NOT_FOUND') {
+          alert('Tài khoản không tồn tại')
+        }
       })
     }
   }
 }
 </script>
 <style scoped>
-@import url('assets/css/app.css') ;
-@import url('assets/css/bootstrap.min.css') ;
-@import url('assets/css/User.css') ;
-@import url('assets/css/animation.css') ;
-.v-application .error {
-  background-color: #ffffff !important;
-  border-color: #f5f2f2 !important;
-}
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 98;
-  background-color: rgba(0, 0, 0, 0.3);
-}
+  @import url('assets/css/app.css') ;
+  @import url('assets/css/bootstrap.min.css') ;
+  @import url('assets/css/User.css') ;
+  @import url('assets/css/animation.css') ;
+  .v-tab {
+    color: #0d6efd !important;
+  }
+  .v-application .error {
+    background-color: #ffffff !important;
+    border-color: #f5f2f2 !important;
+  }
+  .v-application .success {
+    background-color: #ffffff !important;
+    border-color: #2ecc71 !important;
+  }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 2s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.modal1 {
-  position: fixed;
-  top: 20%;
-  left: 40%;
-  transform: translate (-50%, -50%);
-  z-index: 99;
-  width: 100%;
-  max-width: 400px;
-  background-color: white;
-  border-radius: 16px;
-
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 1s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.slide-enter-active,
-.slide-leave-active {
-  transition: transform .5s;
-}
-
-.slide-enter,
-.slide-leave-to {
-  transform: translatey(-50%) translatex(100vw);
-}
-.slide2-enter-active,
-.slide2-leave-active {
-  transition: transform .5s;
-}
-
-.slide2-enter,
-.slide2-leave-to {
-  transform: translatey(50%) translatex(-100vw);
-}
-
-.succesTittle {
-  text-align: center;
-  font-size: 20px;
-  color: Green;
-}
-.errorTittle{
-  text-align: center;
-  font-size: 20px;
-  color: Red;
-}
+  .register{
+    margin-left: 10px;
+  }
   .modal-dialog{
     color: black !important;
   }

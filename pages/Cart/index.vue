@@ -2,23 +2,37 @@
   <v-app>
     <v-parallax
       height="1000"
-      src="https://pixabay.com/get/gf1be685a26dfdbfde948cd75b7b9704b14ac4b1a0cd0a2fc7cc15eee1579cd8c48911da6d3087aee0028b9b9855dd1c89be546144202c3e7ec053214de62aff9_1920.jpg"
+      src="https://cdn.pixabay.com/photo/2019/09/30/15/22/shopping-cart-4516039_960_720.jpg"
     >
       <v-container>
         <v-row>
           <v-col
             cols="12"
+          >
+            <v-card
+              v-if="cartItemCount === 0"
+              height="600px"
+            >
+              <p class="title-count">
+                Không có sản phẩm trong giỏ hàng
+              </p>
+            </v-card>
+          </v-col>
+          <v-col
+            cols="6"
             md="8"
           >
             <v-card
               v-for="product in cart"
-              :key="product.product.id"
+
+              :key="product.id"
               class="pa-2"
               outlined
               tile
             >
               <v-row>
                 <v-col
+                  v-if="cartItemCount >= 1"
                   cols="6"
                   md="4"
                 >
@@ -29,39 +43,45 @@
                   />
                 </v-col>
                 <v-col
+                  v-if="cartItemCount >= 1"
                   cols="12"
                   md="8"
                   sm="6"
                 >
+                  <div class=" flex justify-content-center align-items-center" />
+
                   <div class="mx-auto title">
                     {{ product.product.name }}
+                    <v-btn
+                      class="right"
+                      outlined
+                      color="red"
+                      @click.prevent="removeProduct(product)"
+                    >
+                      <v-icon left>
+                        {{ icons.mdiDelete }}
+                      </v-icon>
+                      Xóa sản phẩm
+                    </v-btn>
                   </div>
+                  <br>
                   <div>
                     Giá sản phẩm: <span class="card-price"> {{ product.product.price }}đ</span>
                   </div>
                   <br>
-                  <div class=" mx-auto card-price">
-                    <div class=" d-flex justify-content-right align-items-right">
-                      <v-btn @click="decrement">
-                        <img src="../../assets/images/cart-minus.svg" height="30px" width="30px">
-                      </v-btn>
-                      <v-btn disabled color="white">
-                        {{ quantity }}
-                      </v-btn>
-                      <v-btn @click="increment">
-                        <img src="../../assets/images/cart-plus.svg" height="30px" width="30px">
-                      </v-btn>
-                    </div>
+                  <div>
+                    Số lượng : {{ product.quantity }}
                   </div>
                   <v-divider class="my-3" />
                   <div class="totalprice">
-                    Tổng tiền:  {{ cartPrice }}đ
+                    Tổng tiền:  {{ product.product.price * product.quantity }}đ
                   </div>
                 </v-col>
               </v-row>
             </v-card>
           </v-col>
           <v-col
+            v-if="cartItemCount >= 1"
             cols="6"
             md="4"
           >
@@ -71,13 +91,20 @@
               tile
             >
               <div class="ma-3">
-                <p>Tổng tiền : <span class="card-price float-end"> {{ cartTotalPrice}}đ</span> </p>
-
+                <p>Tổng tiền : <span class="card-price float-end"> {{ cartTotalPrice }}đ</span> </p>
                 <p>Khuyến mãi</p>
                 <input type="text" class="border-2">
-                <p>Phí vận chuyển : <span class="card-price float-end"> 0đ</span> </p>
-                <p>Thành tiền : <span class="card-price float-end"> {{ cartTotalPrice}}đ</span> </p>
-                <v-btn>Đặt hàng</v-btn>
+                <p>Phí vận chuyển : <span class="card-price float-end"> 15000đ</span> </p>
+                <p>Thành tiền : <span class="card-price float-end"> {{ cartTotalPrice +15000 }}đ</span> </p>
+                <div class=" flex justify-content-center align-items-center">
+                  <v-btn
+                    outlined
+                    color="red"
+                    @click="CreateOrder"
+                  >
+                    Đặt hàng
+                  </v-btn>
+                </div>
               </div>
             </v-card>
           </v-col>
@@ -88,41 +115,107 @@
 </template>
 
 <script>
-
-import { mapGetters, mapMutations } from 'vuex'
+import { mdiDelete } from '@mdi/js'
 
 export default {
   name: 'Index',
   layout: 'clientLayoutsWithoutCarou',
   data () {
     return {
+      dataUser: [],
+      statusOrder: 'Chờ xác nhận',
+      realprice: 0,
       datacart: [],
-      datacartPrice: []
+      datacartPrice: [],
+      dataOrder: {},
+      quantity: 1,
+      icons: {
+        mdiDelete
+      }
 
     }
   },
+  head: {
+    title: 'Trang chủ'
+  },
   computed: {
-    ...mapGetters(['quantity']),
     cart () {
       return this.$store.state.cart
     },
     cartPrice () {
       return this.$store.getters.cartPrice
     },
+    cartItemCount () {
+      return this.$store.getters.cartItemCount
+    },
     cartTotalPrice () {
       return this.$store.getters.cartTotalPrice
+    },
+    user () {
+      return this.$store.state.user
     }
   },
-  methods: {
-    ...mapMutations(['increment', 'decrement'])
-  }
+  create () {
+    this.CreateOrder()
 
+    this.$store.dispatch('getdataUser', this.$store.state.token)
+  },
+  mounted () {
+    this.getdataUser()
+  },
+  methods: {
+    getdataUser () {
+      return new Promise((resolve, reject) => {
+        this.$axios.$post(`https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${process.env.fbApiKey}&idToken=${this.$store.state.token}`, {})
+          .then((data) => {
+            this.dataUser = data.users[0]
+            resolve()
+          }).catch(error => reject(error))
+      })
+    },
+    increment () {
+      this.realprice++
+    },
+    decrement () {
+      if (this.quantity > 1) {
+        this.quantity--
+      }
+    },
+    removeProduct (product) {
+      this.$store.dispatch('removeProduct', product)
+    },
+    CreateOrder () {
+      this.cart.quantity = this.quantity
+      return new Promise((resolve, reject) => {
+        this.$axios.$post(`${process.env.baseURL}/order.json`,
+          {
+            name: this.dataUser.displayName,
+            email: this.dataUser.email,
+            avatar: this.dataUser.photoUrl,
+            status: this.statusOrder,
+            total: String(this.$store.getters.cartTotalPrice),
+            orderdetail: this.cart
+          }
+        )
+          .then(() => {
+            this.$store.dispatch('clearCart')
+          }).catch(error => reject(error))
+      })
+    }
+  }
 }
 </script>
 
 <style scoped>
 .title{
   text-align: left;
+}
+.title-count{
+  padding-top: inherit;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-top:10%;
 }
   .card-price{
     text-align: right;
@@ -131,6 +224,10 @@ export default {
   }
 .d-flex {
   justify-content: left!important;  ;
+}
+.flex{
+  justify-content: center !important;
+  display: flex;
 }
   .pricea{
     margin: auto;
@@ -150,5 +247,8 @@ export default {
     height: 40px;
     margin-left: 10%;
     border-radius: 10px;
+  }
+  .right{
+    float: right;
   }
 </style>

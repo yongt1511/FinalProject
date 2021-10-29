@@ -38,9 +38,9 @@
           show-arrows
         >
           <v-slide-item
-            v-for="(product) in dataProduct"
-            :id="product.id"
+            v-for="product in products"
             :key="product.id"
+            :product="product"
             cols="3"
           >
             <v-hover
@@ -57,6 +57,7 @@
               >
                 <div class="card shadow-sm">
                   <v-img
+                    min-height="285px"
                     :src="product.image"
                   />
                   <div class="card-body">
@@ -67,8 +68,8 @@
                       {{ product.price }} đ
                     </p>
                     <div class="d-flex justify-content-center align-items-center">
-                      <v-btn outlined color="red">
-                        Thêm vào giỏ hàng
+                      <v-btn outlined color="red" @click="productOnclick(product.id)">
+                        Xem chi tiết
                       </v-btn>
                     </div>
                   </div>
@@ -92,12 +93,21 @@ export default {
     return {
       datailTitle: 'Từng sản phẩm được chọn lọc từ các nguồn qua 3 tuyến kiểm dịch nghiêm ngặt, được xử lý, đóng gói với công nghệ Oxy-Fresh 9 từ châu Âu và bảo quản xuyên suốt từ 0-4 độ C từ nhà máy đến tận tay người tiêu dùng, giúp giữ trọn độ tươi ngon và dinh dưỡng của sản phẩm.',
       titleFirst: 'GIAO HÀNG TẬN NƠI KHÔNG LO MÙA DỊCH',
-      dataProduct: [],
       dataCategory: []
     }
   },
+  head: {
+    title: 'Trang chủ'
+  },
+  computed: {
+    products () {
+      return this.$store.state.products
+    }
+  },
+  mounted () {
+    this.$store.dispatch('getProducts')
+  },
   created () {
-    this.GetProduct()
     this.GetCategory()
   },
   methods: {
@@ -121,15 +131,6 @@ export default {
             resolve()
           }).catch(error => reject(error))
       })
-    },
-    GetProduct () {
-      return new Promise((resolve, reject) => {
-        axios.get(' http://localhost:3004/product', {})
-          .then(({ data }) => {
-            this.dataProduct = data
-            resolve()
-          }).catch(error => reject(error))
-      })
     }
   }
 }
@@ -150,6 +151,9 @@ export default {
     text-align: center;
     display: inherit;
     font-size: 36px !important;
+  }
+  .card-text{
+    min-height: 72px;
   }
 
 </style>

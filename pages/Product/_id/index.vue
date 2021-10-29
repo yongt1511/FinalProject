@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <v-parallax height="1000" src="https://pixabay.com/get/g753cf20a556c354c92d29e31bf2ff4dc8ba7c22ed747b3a7c9c2b2cc1a3117106162c65ded3b4f6fee4f529b5e5811dc_1920.jpg">
+    <v-parallax height="1000" src="https://meatdeli.com.vn/upload/iblock/a62/a6248ca575b305360c538bdd62ec2d13.jpg">
       <v-container>
-        <v-row no-gutters>
+        <v-row v-if="product" no-gutters>
           <v-col
             cols="6"
             md="4"
@@ -14,7 +14,7 @@
               min-height="650px"
             >
               <v-img
-                :src="detailProduct.image"
+                :src="product.image"
               />
             </v-card>
           </v-col>
@@ -31,13 +31,13 @@
             >
               <div class="card-body  information-detail">
                 <p class="card-text">
-                  {{ detailProduct.name }}
+                  {{ product.name }}
                 </p>
                 <p class="card-price">
-                  {{ detailProduct.price }}đ
+                  {{ product.price }}đ
                 </p>
                 <p class="detailtext">
-                  {{ detailProduct.detail }}<br>
+                  {{ product.detail }}<br>
                   <span class="note-detail"> Lưu ý: <br>
                     - Hạn sử dụng thực tế quý khách vui lòng xem trên bao bì. <br>
                     - Hình sản phẩm chỉ mang tính chất minh họa, hình bao bì của sản phẩm tùy thời điểm sẽ khác so với thực
@@ -68,16 +68,19 @@
 </template>
 
 <script>
-import axios from 'axios'
-import { mapGetters, mapMutations } from 'vuex'
 export default {
   name: 'Index',
   layout: 'clientLayoutsWithoutCarou',
-
   data () {
     return {
       detailProduct: {},
-      id: this.$route.params.id
+      id: this.$route.params.id,
+      quantity: 1
+    }
+  },
+  computed: {
+    product () {
+      return this.$store.state.product
     }
   },
   watch: {
@@ -85,28 +88,27 @@ export default {
       this.id = to.params.id
     }
   },
-  created () {
-    this.GetDetailProduct()
-  },
-  computed: {
-    ...mapGetters(['quantity'])
+  mounted () {
+    this.$store.dispatch('getProduct', this.id)
   },
   methods: {
-    ...mapMutations(['increment', 'decrement']),
-    GetDetailProduct () {
-      return new Promise((resolve, reject) => {
-        axios.get(`http://localhost:3004/product/${this.id}`)
-          .then(({ data }) => {
-            this.detailProduct = data
-            resolve()
-          }).catch(error => reject(error))
-      })
+    increment () {
+      this.quantity++
+    },
+    decrement () {
+      this.quantity--
     },
     addToCart () {
-      this.$store.dispatch('addProductToCart', {
-        product: this.detailProduct,
-        quantity: this.quantity
-      })
+      console.log(this.$store.state.user)
+      if (this.$store.state.token === null) {
+        alert('Đăng nhập trước khi thêm sản phẩm')
+        this.$router.push('/login')
+      } else {
+        this.$store.dispatch('addProductToCart', {
+          product: this.product,
+          quantity: this.quantity
+        })
+      }
     }
   }
 }

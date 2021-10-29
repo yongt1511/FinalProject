@@ -8,13 +8,22 @@
       color="#CE2222"
       flat
     >
+      <v-avatar
+        :color="$vuetify.breakpoint.smAndDown ? 'white darken-1' : 'transparent'"
+        size="32"
+      />
       <v-tabs
         centered
         class="ml-n9"
         color="white darken-2"
       >
-        <v-tab to="/Homepage">
-          Trang Chủ
+        <v-tab>
+          <nuxt-link
+            tag="v-tab"
+            to="/Homepage"
+          >
+            Trang Chủ
+          </nuxt-link>
         </v-tab>
         <v-tab>
           <v-menu offset-y>
@@ -41,7 +50,7 @@
             </v-list>
           </v-menu>
         </v-tab>
-        <v-tab to="/homepage">
+        <v-tab>
           <img src="../../assets/images/cooltext393548465063270.png" alt="">
         </v-tab>
         <v-tab>
@@ -51,9 +60,83 @@
           Trợ giúp
         </v-tab>
       </v-tabs>
-      <MiniCart />
       <v-menu
-        v-if="$store.state.role === null"
+        bottom
+        rounded
+        offset-y
+      >
+        <template #activator="{ on }">
+          <v-btn
+            class="btnCart"
+            icon
+            x-large
+            v-on="on"
+          >
+            <v-badge
+              :content="cartItemCount"
+              overlap
+              color=""
+            >
+              <v-avatar height="40" width="40" class="d-flex justify-content-center align-items-center">
+                <img src="../../assets/images/cart.svg" alt="">
+              </v-avatar>
+            </v-badge>
+          </v-btn>
+        </template>
+
+        <v-card
+          max-width="300px"
+        >
+          <v-list-item-content
+            v-for="item in cart"
+            :key="item.product.id"
+            class="justify-center"
+          >
+            <v-col
+              cols="6"
+              md="4"
+            >
+              <v-img
+                max-height="80"
+                max-width="80"
+                :src="item.product.image"
+              />
+            </v-col>
+            <v-col
+              cols="12"
+              md="8"
+              sm="6"
+            >
+              <div class="mx-auto text-center">
+                {{ item.product.name }}
+                <v-divider class="my-3" />
+              </div>
+            </v-col>
+            <p class="center">
+              <span class="card-price">{{ item.product.price }}đ</span> x {{ item.quantity }}
+            </p>
+          </v-list-item-content>
+          <v-divider class="my-3" />
+          <div class="totalPrice">
+            <Span>Tổng tiền : {{ cartTotalPrice }}</Span>
+          </div>
+          <div class="d-flex justify-content-center align-items-center">
+            <nuxt-link
+              to="/Cart"
+              tag="v-tab"
+            >
+              <v-btn
+
+                outlined
+                color="red"
+              >
+                Tới giỏ hàng
+              </v-btn>
+            </nuxt-link>
+          </div>
+        </v-card>
+      </v-menu>
+      <v-menu
         bottom
         min-width="200px"
         rounded
@@ -77,14 +160,19 @@
           <v-list-item-content class="justify-center">
             <div class="mx-auto text-center">
               <v-divider class="my-3" />
-              <v-btn
-                depressed
-                rounded
-                text
+              <nuxt-link
+                tag="v-tab"
                 to="/Login"
               >
-                Login
-              </v-btn>
+                <v-btn
+                  depressed
+                  rounded
+                  text
+                >
+                  Đăng nhập
+                </v-btn>
+              </nuxt-link>
+
               <v-divider class="my-3" />
               <v-btn
                 depressed
@@ -92,63 +180,7 @@
                 text
                 to="/Register"
               >
-                Register
-              </v-btn>
-            </div>
-          </v-list-item-content>
-        </v-card>
-      </v-menu>
-      <v-menu
-        v-else
-        bottom
-        rounded
-        offset-y
-      >
-        <template #activator="{ on }">
-          <v-btn
-            icon
-            x-large
-            v-on="on"
-          >
-            <v-avatar
-              color="brown"
-              size="48"
-            >
-              <img :src="dataUser.photoUrl" alt="">
-            </v-avatar>
-          </v-btn>
-        </template>
-        <v-card>
-          <v-list-item-content class="justify-center">
-            <div class="mx-auto text-center">
-              <v-avatar
-                color="brown"
-                size="48"
-              >
-                <img :src="dataUser.photoUrl" alt="">
-              </v-avatar>
-              <br>
-              <br>
-              <p>
-                {{ dataUser.displayName }}
-              </p>
-              <v-divider class="my-3" />
-              <v-btn
-                depressed
-                rounded
-                text
-                to="/editProfile"
-              >
-                Sửa thông tin
-              </v-btn>
-              <v-divider class="my-3" />
-              <v-btn
-                depressed
-                rounded
-                text
-                @click="onLogout"
-              >
-                Đăng xuất
+                Đăng ký
               </v-btn>
             </div>
           </v-list-item-content>
@@ -160,41 +192,33 @@
 
 <script>
 import axios from 'axios'
-import MiniCart from '~/components/Header/Minicart/MiniCart'
 
 export default {
-  components: { MiniCart },
+  name: 'HearderNot',
   data () {
     return {
-      dataCategory: [],
-      dataUser: []
+      dataCategory: []
 
     }
   },
   computed: {
-    user () {
-      return this.$store.state.user
+    cart () {
+      return this.$store.state.cart
+    },
+    cartItemCount () {
+      return this.$store.getters.cartItemCount
+    },
+    cartTotalPrice () {
+      return this.$store.getters.cartTotalPrice
     }
   },
   created () {
     this.GetCategory()
-    this.getdataUser()
   },
   mounted () {
+    this.$store.dispatch('getCartItems')
   },
   methods: {
-    getdataUser () {
-      return new Promise((resolve, reject) => {
-        this.$axios.$post(`https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${process.env.fbApiKey}&idToken=${this.$store.state.token}`, {})
-          .then((data) => {
-            this.dataUser = data.users[0]
-            resolve()
-          }).catch(error => reject(error))
-      })
-    },
-    onLogout () {
-      this.$store.dispatch('logout')
-    },
     categoryOnclick (id) {
       this.$router.push({
         path: `/category/${id}`,
@@ -203,7 +227,7 @@ export default {
     },
     GetCategory () {
       return new Promise((resolve, reject) => {
-        axios.get('http://localhost:3004/category', {})
+        axios.get(' http://localhost:3004/category', {})
           .then(({ data }) => {
             this.dataCategory = data
             resolve()
@@ -244,13 +268,9 @@ export default {
   .totalPrice{
     text-align: right;
     margin-bottom: 10px;
-    margin-right: 10px;
   }
   .v-application .d-flex {
     padding: 10px;
-  }
-  .theme--light.v-list-item:not(.v-list-item--active):not(.v-list-item--disabled) {
-    color: rgba(0, 0, 0, 0.87) !important;
   }
 
 </style>

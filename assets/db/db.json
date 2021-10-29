@@ -22,7 +22,7 @@
     },
     {
       "id": 2,
-      "category": 2,
+      "category": 4,
       "brand": "FEDDY",
       "name": "Sữa tươi TH true Milk 4 hộp",
       "status": true,
@@ -32,7 +32,7 @@
     },
     {
       "id": 3,
-      "category": 2,
+      "category": 4,
       "brand": "SEVI",
       "name": "Bánh mỳ Paket Bảo Ngọc gói 108g",
       "status": true,
@@ -49,6 +49,15 @@
       "price": 47940,
       "detail": "Cam Úc có chứa nhiều Vitamin C, có tác dụng hồi phục sức khỏe nhanh, tốt cho da, chống lão hóa, tốt cho người ốm.\n\nĂn cam Úc thường xuyên sẽ giúp bảo vệ bạn khỏi mắc các bệnh truyền nhiễm do virus, giảm đáng kể nguy cơ mắc bệnh sỏi thận. Nếu bạn muốn tránh lượng calo dư thừa, hãy thêm cam Úc vào chế độ dinh dưỡng hằng ngày của mình.",
       "image": "https://cdn-crownx.winmart.vn/images/prod/162985899484210628789.jpg"
+    },
+    {
+      "name": "TH TrueMilk",
+      "status": "true",
+      "price": "20000",
+      "detail": "aaa",
+      "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY",
+      "id": 7,
+      "category": 4
     }
   ],
   "category": [
@@ -111,81 +120,166 @@
   ],
   "cart": [
     {
-      "product_id": 3,
+      "product_id": 1,
+      "cardprice": 40000,
+      "product": {
+        "id": 1,
+        "name": "Thịt đùi heo Meat Deli 400g",
+        "price": 40000,
+        "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY"
+      },
       "quantity": 1,
       "id": 1
     },
     {
       "product_id": 6,
-      "quantity": 1,
+      "cardprice": 120000,
+      "product": {
+        "id": 6,
+        "name": "Thịt đùi heo Meat Deli 400g",
+        "price": 40000,
+        "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY"
+      },
+      "quantity": 3,
       "id": 2
-    },
-    {
-      "product_id": 6,
-      "quantity": 1,
-      "id": 3
-    },
-    {
-      "product_id": 6,
-      "quantity": 1,
-      "id": 4
-    },
-    {
-      "product_id": 6,
-      "quantity": 1,
-      "id": 5
-    },
-    {
-      "product_id": 6,
-      "quantity": 1,
-      "id": 6
-    },
-    {
-      "product_id": 6,
-      "quantity": 1,
-      "id": 7
-    },
-    {
-      "product_id": 6,
-      "id": 8
-    },
-    {
-      "product_id": 6,
-      "id": 9
     }
   ],
   "order": [
     {
-      "quantity": 1,
-      "name": "Thịt đùi heo Meat Deli 400g",
-      "price": 40000,
-      "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY",
-      "product_id": 6,
+      "status": "Chưa Xác nhận",
+      "total": "60000",
+      "orderdetail": [
+        {
+          "product_id": 1,
+          "cardprice": 80000,
+          "product": {
+            "id": 1,
+            "name": "Thịt đùi heo Meat Deli 400g",
+            "price": 40000,
+            "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY"
+          },
+          "quantity": 2,
+          "id": 1
+        }
+      ],
       "id": 1
     },
     {
-      "quantity": "3",
-      "name": "Thịt đùi heo Meat Deli 400g",
-      "price": 40000,
-      "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY",
-      "product_id": 6,
-      "id": 2
-    },
-    {
-      "quantity": 1,
-      "name": "Thịt đùi heo Meat Deli 400g",
-      "price": 40000,
-      "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY",
-      "product_id": 6,
+      "status": "Chưa Xác nhận",
+      "total": "80000",
+      "orderdetail": [
+        {
+          "product_id": 1,
+          "cardprice": 80000,
+          "product": {
+            "id": 1,
+            "name": "Thịt đùi heo Meat Deli 400g",
+            "price": 40000,
+            "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY"
+          },
+          "quantity": 2,
+          "id": 1
+        }
+      ],
       "id": 3
     },
     {
-      "quantity": 1,
-      "name": "Bánh mỳ Paket Bảo Ngọc gói 108g",
-      "price": 10500,
-      "image": "https://cdn-crownx.winmart.vn/images/prod/162428572953810055993-G1-Bap-cai-tom-DL-L1-MT.jpg",
-      "product_id": 3,
+      "status": "Chưa Xác nhận",
+      "total": "160000",
+      "orderdetail": [
+        {
+          "product_id": 1,
+          "cardprice": 80000,
+          "product": {
+            "id": 1,
+            "name": "Cam ruột vàng úc",
+            "price": 40000,
+            "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY"
+          },
+          "quantity": 2,
+          "id": 1
+        },
+        {
+          "product_id": 1,
+          "cardprice": 80000,
+          "product": {
+            "id": 1,
+            "name": "Thịt đùi heo Meat Deli 400g",
+            "price": 40000,
+            "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY"
+          },
+          "quantity": 2,
+          "id": 1
+        }
+      ],
+      "id": 2
+    },
+    {
+      "status": "Chờ xác nhận",
+      "total": "120000",
+      "orderdetail": [
+        {
+          "cardprice": 120000,
+          "product": {
+            "id": 1,
+            "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY",
+            "name": "Thịt đùi heo Meat Deli 400g",
+            "price": 40000
+          },
+          "product_id": 1,
+          "quantity": 3,
+          "id": "-Mn5DTYW56Q-1vVC_N39"
+        }
+      ],
       "id": 4
+    },
+    {
+      "status": "Chờ xác nhận",
+      "total": "240000",
+      "orderdetail": [
+        {
+          "cardprice": 120000,
+          "product": {
+            "id": 1,
+            "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY",
+            "name": "Thịt đùi heo Meat Deli 400g",
+            "price": 40000
+          },
+          "product_id": 1,
+          "quantity": 3,
+          "id": "-Mn5DTYW56Q-1vVC_N39"
+        },
+        {
+          "cardprice": 120000,
+          "product": {
+            "id": 1,
+            "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY",
+            "name": "Thịt đùi heo Meat Deli 400g",
+            "price": 40000
+          },
+          "product_id": 1,
+          "quantity": 3,
+          "id": "-Mn5GGfENmm_ZHMQmzRp"
+        }
+      ],
+      "id": 5
+    }
+  ],
+  "sessions": [
+    {
+      "email": "yt@gamil.com",
+      "password": "12345678",
+      "id": 1
+    },
+    {
+      "username": "",
+      "password": "",
+      "id": 2
+    },
+    {
+      "username": "asad",
+      "password": "asdasd",
+      "id": 3
     }
   ]
 }
