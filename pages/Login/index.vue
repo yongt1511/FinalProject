@@ -1,91 +1,115 @@
 <template>
   <v-app>
     <v-img :src="img">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content rounded-5 shadow">
-          <div class="logo">
-            <nuxt-link
-              to="/"
-            >
-              <a href=""> <img src="../../assets/images/logo1.png" alt=""></a>
-            </nuxt-link>
-          </div>
-          <div class="modal-header p-5 pb-4 border-bottom-0">
-            <br>
-            <h2 class="fw-bold mb-0">
-              Đăng Nhập
-            </h2>
-          </div>
-          <div class="modal-body p-5 pt-0">
-            <form id="form" class="form">
-              <div class="form-floating mb-3 ">
-                <input
-                  id="email"
-                  v-model="email"
-                  type="text"
-                  class="form-control rounded-4"
+      <v-container>
+        <v-row no-gutters>
+          <v-col
+            md="6"
+            offset-md="3"
+          >
+            <v-card class="cardLogin">
+              <div class="Login">
+                <nuxt-link
+                  to="/"
                 >
-                <label for="email">Email, Tên đăng nhập</label>
-                <i class="fa fa-check-circle" aria-hidden="true" />
-                <i class="fa fa-exclamation-circle" />
-                <small>Error Massage</small>
+                  <img width="" src="../../assets/images/logo1.png" alt="">
+                </nuxt-link>
               </div>
-              <div class="form-floating mb-3 ">
-                <input
-                  id="password"
-                  v-model="password"
-                  type="password"
-                  class="form-control rounded-4"
-                >
-                <label for="password">Mật khẩu</label>
-                <i class="fa fa-check-circle" aria-hidden="true" />
-                <i class="fa fa-exclamation-circle" />
-                <small>Error Massage</small>
+              <br>
+              <div class="LoginTitle">
+                <h2>
+                  Đăng Nhập
+                </h2>
               </div>
-              <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit" @click="btnLogin()">
-                Đăng Nhập
-              </button>
-              <small class="forget"><a href="">Quên mật khẩu?</a> </small>
-              <hr class="my-4">
-              <button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-4" type="submit">
-                <img
-                  style="width: 20px"
-                  src="https://image.similarpng.com/very-thumbnail/2020/05/Glossy-Instagram-icon-PNG.png"
-                >
-                Đăng nhập bằng Intargram
-              </button>
-              <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-4" type="submit">
-                <img src="../../assets/images/abc.svg" alt="">
-                Đăng nhập bằng Facebook
-              </button>
-              <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-4" type="submit">
-                <img src="../../assets/images/image 20.svg" alt="">
-                Đăng nhập bằng số điện thoại
-              </button>
-              <hr>
-              <v-tab class="register" to="/register">
-                Tạo tài khoản
-              </v-tab>
-            </form>
-          </div>
-        </div>
-      </div>
+              <div>
+                <v-form ref="form" v-model="valid" lazy-validation>
+                  <div class="LoginForm">
+                    <v-text-field
+                      v-model="email"
+                      :error-messages="errorEmail"
+                      :success-messages="successEmail"
+                      :rules="EmailRules"
+                      type="text"
+                      label="Email đăng nhập"
+                      required
+                    />
+                    <v-text-field
+                      v-model="password"
+                      :success-messages="successPassword"
+                      :error-messages="errorPassword"
+                      :rules="PasswordRules"
+                      type="password"
+                      label="Mật khẩu"
+                    />
+                  </div>
+                  <div class="btnLogin">
+                    <v-btn
+                      outlined
+                      color="blue"
+                      @click="btnLogin()"
+                    >
+                      Đăng nhập
+                    </v-btn>
+                  </div>
+                  <br>
+                  <small class="forget"><a href="">Quên mật khẩu?</a> </small>
+                  <br>
+                  <hr>
+                  <v-btn class="w-100 py-2 mb-2 btn btn-outline-dark rounded-4" type="submit">
+                    <img
+                      style="width: 20px"
+                      src="https://image.similarpng.com/very-thumbnail/2020/05/Glossy-Instagram-icon-PNG.png"
+                    >
+                    Đăng nhập bằng Intargram
+                  </v-btn>
+                  <v-btn class="w-100 py-2 mb-2 btn btn-outline-primary rounded-4" type="submit">
+                    <img src="../../assets/images/abc.svg" alt="">
+                    Đăng nhập bằng Facebook
+                  </v-btn>
+                  <v-btn class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-4" type="submit">
+                    <img src="../../assets/images/image 20.svg" alt="">
+                    Đăng nhập bằng số điện thoại
+                  </v-btn>
+                  <hr>
+                  <div class="btnLogin">
+                    <v-btn outlined color="red" class="register" to="/register">
+                      Tạo tài khoản
+                    </v-btn>
+                  </div>
+
+                  <br>
+                </v-form>
+              </div>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-img>
   </v-app>
 </template>
 
 <script>
-
-import('../../assets/js/validationLogin')
 export default {
   name: 'Index',
   layout: 'LayoutsWhite',
   data () {
     return {
+      errorPassword: '',
+      errorEmail: '',
+      successEmail: '',
+      successPassword: '',
+      valid: true,
       img: 'https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197_960_720.jpg',
       isLogin: true,
       email: '',
-      password: ''
+      EmailRules: [
+        v => !!v || 'Email không được để trống',
+        v => /.+@.+/.test(v) || 'Không đúng định dạng Email'
+      ],
+      password: '',
+      PasswordRules: [
+        v => !!v || 'Mật khẩu không được để trống'
+      ]
     }
   },
   computed: {
@@ -95,51 +119,67 @@ export default {
   },
   created () {
   },
+
   methods: {
     btnLogin () {
-      this.$store.dispatch('authenticateUser', {
-        email: this.email,
-        password: this.password,
-        isLogin: this.isLogin
-      }).then(() => {
-        if (this.$store.state.role === 'aOAEseP0jkYQVSbOlVuEiNnqMeI2') {
-          this.$router.push('/Admin')
-        } else {
-          this.$router.push('/Homepage')
+      if (this.email === '' || this.password === '') {
+        if (this.email === '' && this.password === '') {
+          this.errorEmail = 'Email can not blank'
+          this.errorPassword = 'Password  can not blank'
+        } else if (this.password === '' && this.email !== '') {
+          this.errorPassword = 'Password  can not blank'
+          this.successEmail = '.'
+        } else if (this.email === '' && this.password !== '') {
+          this.errorEmail = 'Email can not blank'
+          this.successPassword = '.'
         }
-      }).catch((error) => {
-        if (error.data.error.message === 'INVALID_PASSWORD') {
-          alert('Sai mật khẩu')
-        } else if (error.data.error.message === 'EMAIL_NOT_FOUND') {
-          alert('Tài khoản không tồn tại')
-        }
-      })
+      } else {
+        this.$store.dispatch('authenticateUser', {
+          email: this.email,
+          password: this.password,
+          isLogin: this.isLogin
+        }).then(() => {
+          if (this.$store.state.role === 'aOAEseP0jkYQVSbOlVuEiNnqMeI2') {
+            this.$router.push('/Admin')
+          } else {
+            this.$router.push('/Homepage')
+          }
+        }).catch((error) => {
+          if (error.data.error.message === 'INVALID_PASSWORD') {
+            alert('Wrong passwood')
+          } else if (error.data.error.message === 'EMAIL_NOT_FOUND') {
+            alert('Account not exist')
+          }
+        })
+      }
     }
   }
 }
 </script>
 <style scoped>
-  @import url('assets/css/app.css') ;
-  @import url('assets/css/bootstrap.min.css') ;
-  @import url('assets/css/User.css') ;
-  @import url('assets/css/animation.css') ;
-  .v-tab {
-    color: #0d6efd !important;
-  }
-  .v-application .error {
-    background-color: #ffffff !important;
-    border-color: #f5f2f2 !important;
-  }
-  .v-application .success {
-    background-color: #ffffff !important;
-    border-color: #2ecc71 !important;
-  }
-
   .register{
-    margin-left: 10px;
+    margin-bottom: 20px;
   }
-  .modal-dialog{
-    color: black !important;
+  .Login{
+    margin-top: 10%;
+    justify-content: center;
+    justify-items: center;
+    display: flex;
   }
-
+  .LoginTitle{
+    text-align: center;
+  }
+  .btnLogin{
+   display: flex;
+    justify-content: center;
+    color: white;
+    border-radius: 5px;
+  }
+  .forget{
+    float: right;
+  }
+  .cardLogin{
+    padding-left: 60px;
+    padding-right: 60px;
+  }
 </style>

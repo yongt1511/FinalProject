@@ -26,7 +26,7 @@
     <v-card
       max-width="300px"
     >
-      <v-col v-if="cartItemCount === 0" cols="12">
+      <v-col v-if="this.token === 0" cols="12">
         <p>Không có sản phẩm trong giỏ hàng</p>
       </v-col>
       <v-list-item-content
@@ -87,8 +87,14 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
 export default {
   name: 'MiniCart',
+  data () {
+    return {
+      token: null
+    }
+  },
   computed: {
     cart () {
       return this.$store.state.cart
@@ -103,9 +109,15 @@ export default {
   mounted () {
     this.$store.dispatch('getCartItems')
   },
+  created () {
+    this.getToken()
+  },
   methods: {
     reset () {
       this.$store.dispatch('getCartItems')
+    },
+    getToken () {
+      this.token = Cookies.get('token')
     }
   }
 }

@@ -188,16 +188,12 @@ export const actions = {
       }).then((result) => {
         vuexContext.commit('setRole', result.localId)
         vuexContext.commit('setToken', result.idToken)
-        localStorage.setItem('token', result.idToken)
-        // token exp khoang thoi gian het han
-        localStorage.setItem('tokenExpiration', new Date().getTime() + result.expiresIn * 1000)
         Cookies.set('token', result.idToken)
-        Cookies.set('tokenExpiration', result.idToken)
+        Cookies.set('tokenID', result.localId)
         // expiresIn thoi han bao lau
         vuexContext.dispatch('setLogoutTimer', result.expiresIn * 1000)
         resolve({ success: true })
       }).catch((e) => {
-        console.log(e)
         reject(e.response)
       })
     })
@@ -207,37 +203,9 @@ export const actions = {
       vuexContext.commit('clearToken')
     }, duration)
   },
-  initAuth (vuexContext, req) {
-    let token, tokenExpiration
-    if (req) {
-      // xu ly lan dau load trang
-      if (!req.headers.cookie) {
-        return false
-      }
-      const tokenKey = req.headers.cookies.split(';').find(c => c.trim().startsWith('token='))
-      const tokenExpirationKey = req.header.cookie.split('j').find(c => c.trim().startsWith('tokenExpiration'))
-      if (!tokenKey || !tokenExpiration) {
-        vuexContext.dispatch('logout')
-        return false
-      }
-      token = tokenKey.split('=')[1]
-      tokenExpiration = tokenExpirationKey.split('=')[1]
-    } else {
-      token = localStorage.getItem('token')
-      tokenExpiration = localStorage.getItem('tokenExpiration')
-      if (new Date().getTime() > tokenExpiration || !token) {
-        vuexContext.dispatch('logout')
-        return false
-      }
-    }
-    vuexContext.dispatch('setLogoutTimer', tokenExpiration - new Date().getTime())
-    vuexContext.commit('setToken', token)
-  },
   logout (vuexContext) {
     vuexContext.commit('clearToken')
     Cookies.remove('token')
-    Cookies.remove('tokenExpiration')
-    localStorage.removeItem('item')
-    localStorage.removeItem('tokenExpiration')
+    Cookies.remove('tokenID')
   }
 }

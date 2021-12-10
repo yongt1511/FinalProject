@@ -1,6 +1,20 @@
 <template>
   <v-img :src="img">
     <v-container class="containerdetail">
+      <v-dialog v-model="dialogSuccess" max-width="500px">
+        <v-card>
+          <v-card-title class="text-h5">
+            Sửa thông tin tài khoản thành công
+          </v-card-title>
+          <v-card-actions>
+            <v-spacer />
+            <v-btn color="blue darken-1" text @click="close">
+              Đóng
+            </v-btn>
+            <v-spacer />
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
       <v-card
         class="carddetail"
         min-height="500px"
@@ -52,6 +66,7 @@ export default {
   data () {
     return {
       dataUser: [],
+      dialogSuccess: false,
       img: 'https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197_960_720.jpg',
       name: '',
       avatar: '',
@@ -61,7 +76,6 @@ export default {
   },
   mounted () {
     this.getdataUser()
-    console.log(this.$store.state.token)
     return this.$store.state.token
   },
   methods: {
@@ -70,22 +84,23 @@ export default {
         this.$axios.$post(`https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${process.env.fbApiKey}&idToken=${this.$store.state.token}`, {})
           .then((data) => {
             this.dataUser = data.users[0]
-            console.log(this.dataUser)
             resolve()
           }).catch(error => reject(error))
       })
     },
     UpdateDataUser () {
-      return new Promise(() => {
-        this.$axios.$post(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${process.env.fbApiKey}`, {
-          idToken: this.$store.state.token,
-          displayName: this.dataUser.displayName,
-          photoUrl: this.dataUser.photoUrl,
-          returnSecureToken: true
-        }).then(() => {
-          this.$router.push('/homepage')
-        })
+      this.$axios.$post(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${process.env.fbApiKey}`, {
+        idToken: this.$store.state.token,
+        displayName: this.dataUser.displayName,
+        photoUrl: this.dataUser.photoUrl,
+        returnSecureToken: true
+      }).then(() => {
+        this.dialogSuccess = true
       })
+    },
+    close () {
+      this.dialogSuccess = false
+      this.$router.push('/homepage')
     }
   }
 }

@@ -322,15 +322,29 @@
           <v-dialog v-model="dialogDelete" max-width="500px">
             <v-card>
               <v-card-title class="text-h5">
-                Are you sure you want to delete this item?
+                Bạn có muốn xóa sản phẩm
               </v-card-title>
               <v-card-actions>
                 <v-spacer />
                 <v-btn color="blue darken-1" text @click="closeDelete">
-                  Cancel
+                  Hủy bỏ
                 </v-btn>
                 <v-btn color="blue darken-1" text @click="deleteItemConfirm">
-                  OK
+                  Chắc chắn
+                </v-btn>
+                <v-spacer />
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+          <v-dialog v-model="dialogError" max-width="500px">
+            <v-card>
+              <v-card-title class="text-h5">
+                Sản Phẩm đang được đặt hàng không thể xóa
+              </v-card-title>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn color="blue darken-1" text @click="close">
+                  Đóng
                 </v-btn>
                 <v-spacer />
               </v-card-actions>
@@ -387,9 +401,13 @@ export default {
       dataCategory: [],
       dialogDetail: false,
       dialogEdit: false,
+      dialogError: false,
       categoryName: '',
       dialog: false,
       dialogDelete: false,
+      dataOrder: [],
+      orderDetail: {},
+      status: false,
       headers: [
         {
           text: 'Tên sản phẩm',
@@ -445,7 +463,6 @@ export default {
     editConfirm () {
       this.close()
       this.reset()
-      console.log(this.id)
       return new Promise(() => {
         axios.put(`${process.env.baseURL}/product/${this.editid.id}.json`, {
           name: this.dataProduct.name,
@@ -481,7 +498,34 @@ export default {
     },
     deleteItem (item) {
       this.editid = item
-      this.dialogDelete = true
+      this.$axios.$get(`${process.env.baseURL}/order.json`).then((data) => {
+        const ordersArray = []
+        for (const key in data) {
+          ordersArray.push({
+            ...data[key],
+            id: key
+          })
+        }
+        const arrayName = []
+        ordersArray.forEach(function (orders) {
+          orders.orderdetail.forEach(function (order) {
+            arrayName.push(order.product.name)
+          })
+        })
+        // eslint-disable-next-line no-unreachable-loop
+        for (const i of arrayName) {
+          if (i === item.name) {
+            this.dialogError = true
+            this.status = false
+            break
+          } else {
+            this.status = true
+          }
+        }
+        if (this.status === true) {
+          this.dialogDelete = true
+        }
+      })
     },
     deleteItemConfirm () {
       this.closeDelete()
@@ -492,6 +536,7 @@ export default {
       this.dialogDetail = false
       this.dialog = false
       this.dialogEdit = false
+      this.dialogError = false
     },
 
     closeDelete () {
@@ -507,7 +552,10 @@ export default {
           price: this.dataProduct.price,
           image: this.dataProduct.image,
           detail: this.dataProduct.detail
-        }).then(() => this.reset())
+        }).then(() => {
+          this.dataProduct.clear()
+          this.reset()
+        })
       })
     }
   }
@@ -543,5 +591,8 @@ export default {
   }
   .editcard{
     color: black;
+  }
+  .text-h5{
+    text-align: center;
   }
 </style>

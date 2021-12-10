@@ -14,12 +14,6 @@ export default {
   components: { HeaderAdmin },
   data () {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
       title: 'Ngoy'
     }
   }

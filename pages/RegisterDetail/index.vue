@@ -31,7 +31,7 @@
                 v-model="phoneNumber"
                 label="Số điện thoại"
               />
-              <v-btn outlined color="blue" @click="UpdateDataUser">
+              <v-btn outlined color="blue" @click="UpdateDataUser" to="/login">
                 Xác nhận
               </v-btn>
             </v-row>
@@ -57,7 +57,6 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$store.state.token)
     return this.$store.state.token
   },
   methods: {
