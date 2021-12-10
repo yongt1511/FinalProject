@@ -1,285 +1,199 @@
 {
-  "product": [
-    {
-      "id": 1,
-      "category": 1,
-      "brand": "MeatDeli",
-      "name": "Thịt đùi heo Meat Deli 400g",
-      "status": true,
-      "price": 40000,
-      "detail": "Thịt đùi heo Meat Deli được sản xuất và đóng gói bởi thương hiệu Meat Deli – là một thương hiệu của Tập đoàn Masan chuyên về sản xuất, chế biến và đóng gói các mặt hàng, sản phẩm thịt tươi, thịt mát sạch, cao cấp, đảm bảo vệ sinh an toàn thực phẩm. Thương hiệu được giới thiệu tới thị trường Việt Nam vào ngày 23/12/2018, đến nay dòng sản phẩm thịt mát của Meat Deli vẫn đang được rất nhiều người dùng Việt Nam ưa chuộng.\nThịt đùi heo là phần thịt lóc ra từ phần đùi của con heo, đây là nguyên liệu làm món thịt nguội, Giăm bông hay còn gọi là thịt nguội là một món ăn làm từ đùi heo có nguồn gốc từ các nước châu Âu.\nThịt đùi heo Meat Deli được chọn lọc kỹ càng, đảm bảo vệ sinh an toàn thực phẩm. Hơn nữa, các sản phẩm thịt của Meat Deli được đóng gói ở nhiệt độ từ 0 đến 4 độ C cùng với công nghệ Oxy Fresh 9 giúp ngăn chặn vi khuẩn, làm thịt có thể tươi ngon suốt 9 ngày (Chỉ áp dụng cho thịt ba rọi, với các sản phẩm khác người dùng nên kiểm tra lại trên bao bì).",
-      "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY"
-    },
-    {
-      "id": 6,
-      "category": 1,
-      "brand": "MeatDeli",
-      "name": "Thịt đùi heo Meat Deli 400g",
-      "status": true,
-      "price": 40000,
-      "detail": "Thịt đùi heo Meat Deli được sản xuất và đóng gói bởi thương hiệu Meat Deli – là một thương hiệu của Tập đoàn Masan chuyên về sản xuất, chế biến và đóng gói các mặt hàng, sản phẩm thịt tươi, thịt mát sạch, cao cấp, đảm bảo vệ sinh an toàn thực phẩm. Thương hiệu được giới thiệu tới thị trường Việt Nam vào ngày 23/12/2018, đến nay dòng sản phẩm thịt mát của Meat Deli vẫn đang được rất nhiều người dùng Việt Nam ưa chuộng.\nThịt đùi heo là phần thịt lóc ra từ phần đùi của con heo, đây là nguyên liệu làm món thịt nguội, Giăm bông hay còn gọi là thịt nguội là một món ăn làm từ đùi heo có nguồn gốc từ các nước châu Âu.\nThịt đùi heo Meat Deli được chọn lọc kỹ càng, đảm bảo vệ sinh an toàn thực phẩm. Hơn nữa, các sản phẩm thịt của Meat Deli được đóng gói ở nhiệt độ từ 0 đến 4 độ C cùng với công nghệ Oxy Fresh 9 giúp ngăn chặn vi khuẩn, làm thịt có thể tươi ngon suốt 9 ngày (Chỉ áp dụng cho thịt ba rọi, với các sản phẩm khác người dùng nên kiểm tra lại trên bao bì).",
-      "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY"
-    },
-    {
-      "id": 2,
-      "category": 4,
-      "brand": "FEDDY",
-      "name": "Sữa tươi TH true Milk 4 hộp",
-      "status": true,
-      "price": 20000,
-      "detail": "Kết hợp sữa tươi sạch của trang trại TH cùng với trái cây tự nhiên được nhập khẩu từ các vùng nguyên liệu chất lượng cao giúp cung cấp vitamin và khoáng chất cần thiết cho cơ thể.\nThơm ngon đã khát:  Các nguyên liệu được phối trộn với công thức riêng biệt mang đến vị ngon và nguồn dưỡng chất hoàn toàn từ thiên nhiên.\nCông nghệ sản xuất hiện đại: Quy trình sản xuất khép kín trên dây chuyền hiện đại từ CHLB Đức, sử dụng công nghệ tiệt trùng giúp lưu giữ nhiều nhất dưỡng chất và hương vị cho sản phẩm.\nTrải nghiệm uống sảng khoái: Thiết kế cổ chai rộng mang đến trải nghiệm uống sảng khoái.\nNăng động hiện đại: Bao bì trẻ trung, năng động với dung tích 300 ml tiện lợi, phù hợp với xu hướng sử dụng “on-the-go” của cuộc sống hiện đại.\nKhông chất bảo quản",
-      "image": "https://lh3.googleusercontent.com/_ovC6GaAHUiYIWkKvVFpHDxN5cu-jpwpZcG6qSe_wz-g2gDhvm_qH5ADjWD09Qee8f4ljhL15SqV74I1H4zShRl-b7CXfuAj7A"
-    },
-    {
-      "id": 3,
-      "category": 4,
-      "brand": "SEVI",
-      "name": "Bánh mỳ Paket Bảo Ngọc gói 108g",
-      "status": true,
-      "price": 10500,
-      "detail": "Bánh mỳ Paket Bảo Ngọc gói 108g",
-      "image": "https://cdn-crownx.winmart.vn/images/prod/162428572953810055993-G1-Bap-cai-tom-DL-L1-MT.jpg"
-    },
-    {
-      "id": 4,
-      "category": 3,
-      "brand": "VIMEX",
-      "name": "Cam ruột vàng úc",
-      "status": true,
-      "price": 47940,
-      "detail": "Cam Úc có chứa nhiều Vitamin C, có tác dụng hồi phục sức khỏe nhanh, tốt cho da, chống lão hóa, tốt cho người ốm.\n\nĂn cam Úc thường xuyên sẽ giúp bảo vệ bạn khỏi mắc các bệnh truyền nhiễm do virus, giảm đáng kể nguy cơ mắc bệnh sỏi thận. Nếu bạn muốn tránh lượng calo dư thừa, hãy thêm cam Úc vào chế độ dinh dưỡng hằng ngày của mình.",
-      "image": "https://cdn-crownx.winmart.vn/images/prod/162985899484210628789.jpg"
-    },
-    {
-      "name": "TH TrueMilk",
-      "status": "true",
-      "price": "20000",
-      "detail": "aaa",
-      "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY",
-      "id": 7,
-      "category": 4
-    }
-  ],
-  "category": [
-    {
-      "id": 1,
-      "name": "Thịt-Trứng-Rau củ",
-      "image": "https://meatdeli.com.vn/upload/iblock/a62/a6248ca575b305360c538bdd62ec2d13.jpg"
-    },
-    {
-      "id": 2,
-      "name": "Đồ uống -Giải khát",
-      "image": "https://lacdavang.com/wp-content/uploads/2017/04/HERO_Worlds_Best_Soda_Bundaberg_shutterstock_679079920.jpg"
-    },
-    {
-      "id": 3,
-      "name": "Hoa quả nhiệt đới",
-      "image": "https://congthuong.vn/stores/news_dataimages/nguyenly/112020/20/11/in_article/2037_hoa-qua.jpg?rt=20201120112038"
-    },
-    {
-      "id": 4,
-      "name": "Sản Phẩm từ sữa",
-      "image": "https://cdn.tgdd.vn/2021/05/CookProduct/BeFunky-collage-1200x676-12.jpg"
-    }
-  ],
-  "brand": [
-    {
-      "id": 1,
-      "name": "Meat Deli"
-    },
-    {
-      "id": 2,
-      "name": "FEEDY"
-    },
-    {
-      "id": 3,
-      "name": "LENGER"
-    },
-    {
-      "id": 4,
-      "name": "VIMEX"
-    },
-    {
-      "id": 5,
-      "name": "SOVI"
-    }
-  ],
-  "user": [
-    {
-      "name": "yongt1511@gmail.com",
-      "password": "123",
-      "phonenumber": "0396087048",
-      "id": 1
-    },
-    {
-      "name": "yongt15111@gmail.com",
-      "password": "1234",
-      "phonenumber": "0396087048",
-      "id": 2
-    }
-  ],
-  "cart": [
-    {
-      "product_id": 1,
-      "cardprice": 40000,
-      "product": {
-        "id": 1,
-        "name": "Thịt đùi heo Meat Deli 400g",
-        "price": 40000,
-        "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY"
-      },
-      "quantity": 1,
-      "id": 1
-    },
-    {
-      "product_id": 6,
-      "cardprice": 120000,
-      "product": {
-        "id": 6,
-        "name": "Thịt đùi heo Meat Deli 400g",
-        "price": 40000,
-        "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY"
-      },
-      "quantity": 3,
-      "id": 2
-    }
-  ],
-  "order": [
-    {
-      "status": "Chưa Xác nhận",
-      "total": "60000",
-      "orderdetail": [
-        {
-          "product_id": 1,
-          "cardprice": 80000,
-          "product": {
-            "id": 1,
-            "name": "Thịt đùi heo Meat Deli 400g",
-            "price": 40000,
-            "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY"
-          },
-          "quantity": 2,
-          "id": 1
-        }
-      ],
-      "id": 1
-    },
-    {
-      "status": "Chưa Xác nhận",
-      "total": "80000",
-      "orderdetail": [
-        {
-          "product_id": 1,
-          "cardprice": 80000,
-          "product": {
-            "id": 1,
-            "name": "Thịt đùi heo Meat Deli 400g",
-            "price": 40000,
-            "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY"
-          },
-          "quantity": 2,
-          "id": 1
-        }
-      ],
-      "id": 3
-    },
-    {
-      "status": "Chưa Xác nhận",
-      "total": "160000",
-      "orderdetail": [
-        {
-          "product_id": 1,
-          "cardprice": 80000,
-          "product": {
-            "id": 1,
-            "name": "Cam ruột vàng úc",
-            "price": 40000,
-            "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY"
-          },
-          "quantity": 2,
-          "id": 1
+  "brand" : [ {
+    "id" : 1,
+    "name" : "Meat Deli"
+  }, {
+    "id" : 2,
+    "name" : "FEEDY"
+  }, {
+    "id" : 3,
+    "name" : "LENGER"
+  }, {
+    "id" : 4,
+    "name" : "VIMEX"
+  }, {
+    "id" : 5,
+    "name" : "SOVI"
+  } ],
+  "category" : [ {
+    "id" : 1,
+    "image" : "https://meatdeli.com.vn/upload/iblock/a62/a6248ca575b305360c538bdd62ec2d13.jpg",
+    "name" : "Thịt-Trứng-Rau củ"
+  }, {
+    "id" : 2,
+    "image" : "https://lacdavang.com/wp-content/uploads/2017/04/HERO_Worlds_Best_Soda_Bundaberg_shutterstock_679079920.jpg",
+    "name" : "Đồ uống -Giải khát"
+  }, {
+    "id" : 3,
+    "image" : "https://congthuong.vn/stores/news_dataimages/nguyenly/112020/20/11/in_article/2037_hoa-qua.jpg?rt=20201120112038",
+    "name" : "Hoa quả nhiệt đới"
+  }, {
+    "id" : 4,
+    "image" : "https://cdn.tgdd.vn/2021/05/CookProduct/BeFunky-collage-1200x676-12.jpg",
+    "name" : "Sản Phẩm từ sữa"
+  } ],
+  "order" : {
+    "-Mn7jWXvUTfT7u6P64fM" : {
+      "avatar" : "https://cdn.pixabay.com/photo/2021/10/19/10/56/cat-6723256_960_720.jpg",
+      "email" : "nyccouple2@gmail.com",
+      "name" : "Tung",
+      "orderdetail" : [ {
+        "cardprice" : 40000,
+        "id" : "-Mn7jRP0XPlDDErQpX9D",
+        "product" : {
+          "id" : 6,
+          "image" : "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY",
+          "name" : "Thịt đùi heo Meat Deli 400g",
+          "price" : 40000
         },
-        {
-          "product_id": 1,
-          "cardprice": 80000,
-          "product": {
-            "id": 1,
-            "name": "Thịt đùi heo Meat Deli 400g",
-            "price": 40000,
-            "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY"
-          },
-          "quantity": 2,
-          "id": 1
-        }
-      ],
-      "id": 2
-    },
-    {
-      "status": "Chờ xác nhận",
-      "total": "120000",
-      "orderdetail": [
-        {
-          "cardprice": 120000,
-          "product": {
-            "id": 1,
-            "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY",
-            "name": "Thịt đùi heo Meat Deli 400g",
-            "price": 40000
-          },
-          "product_id": 1,
-          "quantity": 3,
-          "id": "-Mn5DTYW56Q-1vVC_N39"
-        }
-      ],
-      "id": 4
-    },
-    {
-      "status": "Chờ xác nhận",
-      "total": "240000",
-      "orderdetail": [
-        {
-          "cardprice": 120000,
-          "product": {
-            "id": 1,
-            "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY",
-            "name": "Thịt đùi heo Meat Deli 400g",
-            "price": 40000
-          },
-          "product_id": 1,
-          "quantity": 3,
-          "id": "-Mn5DTYW56Q-1vVC_N39"
-        },
-        {
-          "cardprice": 120000,
-          "product": {
-            "id": 1,
-            "image": "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY",
-            "name": "Thịt đùi heo Meat Deli 400g",
-            "price": 40000
-          },
-          "product_id": 1,
-          "quantity": 3,
-          "id": "-Mn5GGfENmm_ZHMQmzRp"
-        }
-      ],
-      "id": 5
+        "product_id" : 6,
+        "quantity" : 1
+      } ],
+      "status" : "Xác nhận",
+      "total" : "40000"
     }
-  ],
-  "sessions": [
-    {
-      "email": "yt@gamil.com",
-      "password": "12345678",
-      "id": 1
+  },
+  "product" : {
+    "1" : {
+      "brand" : "MeatDeli",
+      "category" : 1,
+      "detail" : "Thịt đùi heo Meat Deli được sản xuất và đóng gói bởi thương hiệu Meat Deli – là một thương hiệu của Tập đoàn Masan chuyên về sản xuất, chế biến và đóng gói các mặt hàng, sản phẩm thịt tươi, thịt mát sạch, cao cấp, đảm bảo vệ sinh an toàn thực phẩm. Thương hiệu được giới thiệu tới thị trường Việt Nam vào ngày 23/12/2018, đến nay dòng sản phẩm thịt mát của Meat Deli vẫn đang được rất nhiều người dùng Việt Nam ưa chuộng.\nThịt đùi heo là phần thịt lóc ra từ phần đùi của con heo, đây là nguyên liệu làm món thịt nguội, Giăm bông hay còn gọi là thịt nguội là một món ăn làm từ đùi heo có nguồn gốc từ các nước châu Âu.\nThịt đùi heo Meat Deli được chọn lọc kỹ càng, đảm bảo vệ sinh an toàn thực phẩm. Hơn nữa, các sản phẩm thịt của Meat Deli được đóng gói ở nhiệt độ từ 0 đến 4 độ C cùng với công nghệ Oxy Fresh 9 giúp ngăn chặn vi khuẩn, làm thịt có thể tươi ngon suốt 9 ngày (Chỉ áp dụng cho thịt ba rọi, với các sản phẩm khác người dùng nên kiểm tra lại trên bao bì).",
+      "id" : 6,
+      "image" : "https://lh3.googleusercontent.com/ABPyKXlxSkXT1-OrrTMME-4d-HqJzgpXw0w-LjjLInCS_wiuu8sE5HrCfSD_Q_bkxzl1sOthDQlAXqiE5tY",
+      "name" : "Thịt đùi heo Meat Deli 400g",
+      "price" : 40000,
+      "status" : true
     },
-    {
-      "username": "",
-      "password": "",
-      "id": 2
+    "2" : {
+      "brand" : "FEDDY",
+      "category" : 4,
+      "detail" : "Kết hợp sữa tươi sạch của trang trại TH cùng với trái cây tự nhiên được nhập khẩu từ các vùng nguyên liệu chất lượng cao giúp cung cấp vitamin và khoáng chất cần thiết cho cơ thể.\nThơm ngon đã khát:  Các nguyên liệu được phối trộn với công thức riêng biệt mang đến vị ngon và nguồn dưỡng chất hoàn toàn từ thiên nhiên.\nCông nghệ sản xuất hiện đại: Quy trình sản xuất khép kín trên dây chuyền hiện đại từ CHLB Đức, sử dụng công nghệ tiệt trùng giúp lưu giữ nhiều nhất dưỡng chất và hương vị cho sản phẩm.\nTrải nghiệm uống sảng khoái: Thiết kế cổ chai rộng mang đến trải nghiệm uống sảng khoái.\nNăng động hiện đại: Bao bì trẻ trung, năng động với dung tích 300 ml tiện lợi, phù hợp với xu hướng sử dụng “on-the-go” của cuộc sống hiện đại.\nKhông chất bảo quản",
+      "id" : 2,
+      "image" : "https://lh3.googleusercontent.com/_ovC6GaAHUiYIWkKvVFpHDxN5cu-jpwpZcG6qSe_wz-g2gDhvm_qH5ADjWD09Qee8f4ljhL15SqV74I1H4zShRl-b7CXfuAj7A",
+      "name" : "Sữa tươi TH true Milk 4 hộp",
+      "price" : 20000,
+      "status" : true
     },
-    {
-      "username": "asad",
-      "password": "asdasd",
-      "id": 3
+    "3" : {
+      "brand" : "SEVI",
+      "category" : 2,
+      "detail" : "Bánh mỳ Paket Bảo Ngọc gói 108g",
+      "id" : 3,
+      "image" : "https://cdn-crownx.winmart.vn/images/prod/162428572953810055993-G1-Bap-cai-tom-DL-L1-MT.jpg",
+      "name" : "Bánh mỳ Paket Bảo Ngọc gói 108g",
+      "price" : 10500,
+      "status" : true
+    },
+    "4" : {
+      "brand" : "VIMEX",
+      "category" : 3,
+      "detail" : "Cam Úc có chứa nhiều Vitamin C, có tác dụng hồi phục sức khỏe nhanh, tốt cho da, chống lão hóa, tốt cho người ốm.\n\nĂn cam Úc thường xuyên sẽ giúp bảo vệ bạn khỏi mắc các bệnh truyền nhiễm do virus, giảm đáng kể nguy cơ mắc bệnh sỏi thận. Nếu bạn muốn tránh lượng calo dư thừa, hãy thêm cam Úc vào chế độ dinh dưỡng hằng ngày của mình.",
+      "id" : 4,
+      "image" : "https://cdn-crownx.winmart.vn/images/prod/162985899484210628789.jpg",
+      "name" : "Cam ruột vàng úc",
+      "price" : 47940,
+      "status" : true
+    },
+    "-Mn8sk7qnW1LpwtPo6w-" : {
+      "category" : 1,
+      "detail" : "Tôm thẻ là loại tôm ngon, giàu chất dinh dưỡng, giá thành rẻ rất được nhiều người nội trợ ở Việt Nam tin dùng, ưa chuộng. Tại Việt Nam, tôm thường được nuôi trồng tại các vùng cửa sông, cửa biển, nơi vùng nước lợ.\n\nTôm thẻ 70-80 con/kg có vỏ mỏng, màu trắng đục, chân màu trắng, dài tầm 15-20 cm. Tôm thẻ có 1 đốt đầu, 6 đốt bụng và 1 đốt đuôi. Đốt thường mang trứng, rãnh bụng rất hẹp hoặc gần như không có.\n\nSản phẩm rất giàu chất dinh dưỡng, cung cấp cho cơ thể lượng protein dồi dào, bổ sung vitamin B12, bổ sung chất sắt, selen, canxi, omega 3. Đây đều là các chất cần thiết cho cơ thể, giúp cơ thể phát triển khỏe mạnh.\n\nTôm thẻ 70-80 con/kg có thể chế biến nhiều món ăn khác nhau với tôm thẻ như: tôm rim nước mắm, tôm kho với thịt ba rọi, tôm thẻ xào đậu tây, tôm thẻ chiên sốt me...\n\nSản phẩm là loại tôm tươi 100%, được trải qua công đoạn sơ chế hợp vệ sinh và bảo quản ở nhiệt độ tốt, để đem đến cho khách hàng sản phẩm tươi ngon, chất lượng tốt nhất.",
+      "image" : "https://tmp.phongvu.vn/wp-content/uploads/2020/09/T%C3%B4m-th%E1%BA%BB-70-80-con-kg_1-e1600915403742.jpg",
+      "name" : "Tôm thẻ 70-80 con/kg",
+      "price" : " 86700"
+    },
+    "-Mn8stKQKK_w12RfygJO" : {
+      "category" : 1,
+      "detail" : "Thịt MEAT DELI là sản phẩm có nguồn gốc xuất xứ rõ ràng, được chăn nuôi theo hướng công nghiệp sạch, đảm bảo an toàn cho người sử dụng. Thịt được chế biến trên công nghệ dây chuyền kỹ thuật hiện đại, sạch sẽ từ khâu chế biến đến khâu, đóng gói, đông lạnh. Tất cả đều đảm bảo vệ sinh an toàn thực phẩm, mang đến cho người tiêu dùng sản phẩm có chất lượng tốt nhất.\n\nThông tin sản phẩm\nSườn non heo là phần xương sườn nhỏ, xương hình dẹt, chứa nhiều thịt xen chút mỡ, thường có sụn. Loại sườn này thích hợp nhất là dùng để chế biến các món như sườn nướng, rim, sườn xào, sườn chua ngọt,…\n\nThịt heo chứa hàm lượng cao protein và các acid amin, rất cần thiết đối với những người quan tâm đến việc xây dựng hình thể. Thành phần bên trong thịt heo chứa nhiều vitamin B1, vitamin B2 rất cần thiết cho sự tăng trưởng, phục hồi cơ bắp và nhanh hồi phục những tổn thương trên da và giải độc cơ thể rất tốt.\n\nThịt heo thúc đẩy việc sản xuất tế bào máu của cơ thể có lượng máu lưu thông tốt hơn, hạn chế tình trạng tê chân, tay do ít vận động. Thịt heo bảo vệ cấu trúc xương, giúp xương và răng chắc khỏe, cũng như đảm bảo  năng lượng cho cơ thể đủ sức vận động.\n\nThịt heo tốt cho da, mắt, hệ thần kinh, xương và hoạt động trí óc. Ăn thịt heo cũng đảm bảo khả năng miễn dịch tốt hơn do có sự hiện diện của các chất chống oxy hóa quan trọng.\n\nLưu ý:",
+      "image" : "https://cdn-crownx.winmart.vn/images/prod/162428207996210281593-KG-MEAT-DELI-Giu-heo-cat-khoanh-(S).jpg",
+      "name" : "Sườn thăn MeatDeli Premium (S)",
+      "price" : " 87465"
+    },
+    "-Mn8tg7tBJiZMuWJAKOG" : {
+      "category" : 1,
+      "detail" : "Lòng gà Meat Deli khay 350g",
+      "image" : "https://cdn-crownx.winmart.vn/images/prod/162788935994810281689-KH-Long-ga-Meat-deli--khay-350g.jpg",
+      "name" : "Lòng gà Meat Deli khay 350g",
+      "price" : " 26900"
+    },
+    "-Mn8uRO0656oFaZJmUQE" : {
+      "category" : 4,
+      "detail" : "Sữa tiệt trùng Vinamilk không đường túi 220ml với thành phần nước, đường tinh luyện, sữa bột, dầu thực vật, chất béo sữa, chất ổn định, hương liệu tổng hợp dùng cho thực phẩm... Sản phẩm với đầy đủ thành phần dưỡng chất, đảm bảo đáp ứng đầy đủ tất cả các nhu cầu dinh dưỡng của sức khỏe.\n\nSữa là một nguồn dinh dưỡng giàu canxi. Khoáng chất này rất cần thiết để giúp cho xương và răng khỏe mạnh. Hơn nữa, sữa cũng là một nguồn cung cấp giàu vitamin D, nó có tác dụng làm giảm viêm nhiễm và tăng cường hệ miễn dịch cho cơ thể. Ngoài ra, thành phần Protein có trong sữa, là điều cần thiết cho sự tăng trưởng cơ bắp đối với những người tham gia vào các hoạt động thể chất nên đưa sữa vào danh sách những thực phẩm thiết yếu hàng ngày. Sữa giúp bù lại nước cho cơ thể mà bạn bị mất sau khi tập thể dục, và làm giảm đau nhức cơ bắp.\nSữa tiệt trùng Vinamilk không đường túi 220ml có chứa đạm, chất béo, canxi và các vitamin... cần thiết giúp xương chắc khỏe, cung cấp năng lượng cho quá trình vận động diễn ra hàng ngày của cơ thể.",
+      "image" : "https://cdn-crownx.winmart.vn/images/prod/162428207996210281593-KG-MEAT-DELI-Giu-heo-cat-khoanh-(S).jpg",
+      "name" : "Sữa tiệt trùng Vinamilk không đường túi 220ml",
+      "price" : "6700"
+    },
+    "-Mn8uecPXBBJ6Y8lS5Qt" : {
+      "category" : 4,
+      "detail" : "Phô mai Vinamilk hộp 120g (8 miếng)",
+      "image" : "https://cdn-crownx.winmart.vn/images/prod/162427276265710005761-HOP-Sua-chua-uong-cu-duong-Probi-Vinamilk-chai-400ml.jpg",
+      "name" : "Phô mai Vinamilk hộp 120g",
+      "price" : " 29400 "
+    },
+    "-Mn8vJq-tL3kiEv_ACC5" : {
+      "category" : 4,
+      "detail" : "Lốc 6 hộp sữa đậu nành vị đường đen Fami 200ml",
+      "image" : "https://cdn-vincart.vinid.net/cdn-cgi/image/fit=scale-down,w=1200,quality=75,f=auto/vm/product/1627546456114/8934614030851.jpg",
+      "name" : "Sữa đậu nành vị đường đen Fami 200ml",
+      "price" : "28000"
+    },
+    "-Mn8w37mR8koo4Av2dRt" : {
+      "category" : 2,
+      "detail" : "Bánh Tipo Hữu Nghị trà xanh được làm từ thành phần trứng, đường, bột mì, sữa bột, bột trà xanh Matcha... chất lượng tốt và công thức chế biến đặc biệt, cho bánh có hương vị thơm ngon và bổ dưỡng. Từng miếng bánh giòn tan, béo ngậy, thơm vị trà xanh mới lạ mang lại trải nghiệm thú vị khi thưởng thức. Sản phẩm không chứa chất bảo quản, chất tạo ngọt, màu nhân tạo, đảm bảo an toàn tuyệt đối cho người sử dụng. \nBánh Tipo Hữu Nghị trà xanh được đóng hộp tiện lợi. Sản phẩm có giá trị dinh dưỡng cao do đó bạn có thể dùng trong những bữa ăn nhẹ để bổ sung năng lượng cho cơ thể ngay khi cần thiết. Ngoài ra, đây cũng là món quà đặc biệt ngọt ngào dành tặng người thân, bạn bè, đồng nghiệp trong dịp lễ Tết.",
+      "image" : "https://cdn-crownx.winmart.vn/images/prod/162427304346810305224-HOP-Bonh-trung-Tipo-xop-phu-mai-Huu-Nghi-gui-220g.jpg",
+      "name" : "Bánh Tipo Hữu Nghị trà xanh ",
+      "price" : "18000"
+    },
+    "-Mn8w9tEr_EStmDEGKdP" : {
+      "category" : 2,
+      "detail" : "Snack khoai tây Lay's vị bò bít tết Manhattan gói 95g là sự kết hợp tuyệt với giữa khoai tây tươi cùng gia vị bò bít tết Manhattan  đậm đà, đem đến cho bạn trải nghiệm thú vị, bất ngờ.\n\nSnack được chế biến từ những nguyên liệu tươi ngon, được chọn lọc kỹ càng, trên dây chuyền công nghệ hiện đại, khép kín, dưới sự giám sát nghiệm ngặt, chặt chẽ, để đảm bảo mang tới cho bạn sản phẩm hoàn hảo nhất, đảm bảo an toàn nhất.\n\nSnack khoai tây Lay's vị bò bít tết Manhattan gói 95g được thiết kế dạng gói tiện dụng, dễ dàng mang theo bên mình khi đi chơi, du lịch, dã ngoại, hội họp bạn bè...\n\nSản phẩm là sự lựa chọn tuyệt vời khi cùng bạn bè quây quần, trò chuyện bên nhau.",
+      "image" : "https://cdn-crownx.winmart.vn/images/prod/162428247728710015875-G1-Snack-Lay's-vi-kem-chua-h%C3%A0nh-95g.jpg",
+      "name" : "Snack khoai tây Lay's vị bò bít tết Manhattan",
+      "price" : "22000"
+    },
+    "-Mn8wIf3eT8R4eGWF9c6" : {
+      "category" : 2,
+      "detail" : "Nước giải khát không calo Pesi 330ml là loại nước giải khát độc đáo vị chanh và không calo. Sản phẩm hứa hẹn sẽ mang đến một trải nghiệm hoàn toàn mới mẻ đầy thú vị.\n\nVị chanh thanh mát của nước giải khát sẽ giúp bạn cảm thấy sảng khoái nhưng vẫn tốt cho sức khỏe. Sản phẩm ngon hơn khi uống lạnh.\nLà một loại nước có gaz nhưng không chứa calo nên bạn hoàn toàn có thể yên tâm sử dụng mà không cần phải lo lắng về việc có thể tăng cân.\nVới bao bì chất liệu Matte độc đáo cùng thiết kế dạng lon truyền thống giúp bạn có thể dễ dàng bảo quản cũng như mang theo sản phẩm trong các chuyến dã ngoại hay các buổi thi đấu, luyện tập thể thao.",
+      "image" : "https://cdn-crownx.winmart.vn/images/prod/162427567193110150521-LON-Loc-6-lon-nuoc-khung-calo-chanh-330ml.jpg",
+      "name" : "Nước giải khát không calo Pepsi",
+      "price" : "9700"
+    },
+    "-Mn8wVZhNk9YJjdVQlEB" : {
+      "category" : 2,
+      "detail" : "Nước ngọt 7UP lon 330ml",
+      "image" : "https://cdn-crownx.winmart.vn/images/prod/162428621883510011771-LON-Nuoc-m%C3%A0u-dua-Ben-Tre-A-Tuan-Khang-lo-150g.jpg",
+      "name" : "Nước ngọt 7UP",
+      "price" : "9500"
+    },
+    "-Mn8wbwvkdARsAG42If5" : {
+      "category" : 2,
+      "detail" : "Bia Tiger lon 330ml là một sản phẩm có xuất xứ thương hiệu Hà Lan. Đây là sản dành cho người trưởng thành trên 18 tuổi và không sử dụng cho phụ nữ có thai. Đặc biệt lưu ý đã uống bia rượu thì không lái xe.\n\nThông tin sản phẩm\nBia Tiger lon 330ml được lên men tự nhiền từ hoa bia và lúa mạch thương hạng, nhập khẩu tươi mới từ châu Âu. Trải qua một quy trình ủ men đảm bảo chất lượng, cho ra đời một loại bia ngon, hương vị thơm nồng, nồng độ cồn đạt khoảng 5%.\n\nCác quy trình sản xuất, từ lựa chọn nguyên liệu, chế biến, đóng gói đều được làm trên dây chuyền công nghệ hiện đại, khép kín, đảm bảo việc ra đời sản phẩm có chất lượng tốt, độ an toàn cao. Bia được đóng gói đẹp mắt, thích hợp để để biếu, tặng, hay sử dụng cho tiệc ngoài trời, du lịch, dã ngoại.",
+      "image" : "https://cdn-crownx.winmart.vn/images/prod/162427304644810011892-LON-Loc-6-lon-bia-Tiger-Crystal-330ml.jpg",
+      "name" : "Bia Tiger",
+      "price" : "15500"
     }
-  ]
+  },
+  "sessions" : [ {
+    "email" : "yt@gamil.com",
+    "id" : 1,
+    "password" : "12345678"
+  }, {
+    "id" : 2,
+    "password" : "",
+    "username" : ""
+  }, {
+    "id" : 3,
+    "password" : "asdasd",
+    "username" : "asad"
+  } ],
+  "user" : [ {
+    "id" : 1,
+    "name" : "yongt1511@gmail.com",
+    "password" : "123",
+    "phonenumber" : "0396087048"
+  }, {
+    "id" : 2,
+    "name" : "yongt15111@gmail.com",
+    "password" : "1234",
+    "phonenumber" : "0396087048"
+  } ]
 }

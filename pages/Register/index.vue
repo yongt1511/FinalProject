@@ -110,16 +110,15 @@ export default {
           password: this.password,
           role: this.role
         }).then((result) => {
-          console.log(this.$store.state.token)
           if (result.success) {
-            alert('Tạo tài khoản thành công')
+            alert('Create account success')
             this.$router.push('/registerdetail')
           }
         }).catch((error) => {
           if (error.data.error.message === 'WEAK_PASSWORD : Password should be at least 6 characters') {
-            alert('Vui lòng tạo mật khẩu trên 6 kí tự')
+            alert('Password should least 6 characters')
           } else if (error.data.error.message === 'EMAIL_EXISTS') {
-            alert('Tài khoản đã tồn tại')
+            alert('Account exist')
           }
         })
       }

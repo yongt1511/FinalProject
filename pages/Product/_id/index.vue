@@ -1,6 +1,7 @@
 <template>
   <v-app>
-    <v-parallax height="1000" src="https://meatdeli.com.vn/upload/iblock/a62/a6248ca575b305360c538bdd62ec2d13.jpg">
+    <v-img height="1000" src="https://meatdeli.com.vn/upload/iblock/a62/a6248ca575b305360c538bdd62ec2d13.jpg">
+      <br><br><br><br>
       <v-container>
         <v-row v-if="product" no-gutters>
           <v-col
@@ -11,8 +12,9 @@
               class="pa-2"
               outlined
               tile
-              min-height="650px"
+              min-height="800px"
             >
+              <br><br><br><br>
               <v-img
                 :src="product.image"
               />
@@ -27,7 +29,7 @@
               class="pa-2"
               outlined
               tile
-              min-height="650px"
+              min-height="800px"
             >
               <div class="card-body  information-detail">
                 <p class="card-text">
@@ -63,7 +65,7 @@
           </v-col>
         </v-row>
       </v-container>
-    </v-parallax>
+    </v-img>
   </v-app>
 </template>
 
@@ -96,26 +98,22 @@ export default {
       this.quantity++
     },
     decrement () {
-      this.quantity--
+      if (this.quantity > 1) {
+        this.quantity--
+      }
     },
     addToCart () {
-      console.log(this.$store.state.user)
-      if (this.$store.state.token === null) {
-        alert('Đăng nhập trước khi thêm sản phẩm')
-        this.$router.push('/login')
-      } else {
-        this.$store.dispatch('addProductToCart', {
-          product: this.product,
-          quantity: this.quantity
-        })
-      }
+      this.$store.dispatch('addProductToCart', {
+        product: this.product,
+        quantity: this.quantity
+      })
     }
   }
 }
 </script>
 
 <style scoped>
-@import url('assets/css/app.css') ;
+@import url('../../../assets/css/app.css') ;
 .theme--light.v-btn.v-btn--disabled {
   color: black;
 }

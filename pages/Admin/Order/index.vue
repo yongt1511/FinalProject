@@ -231,6 +231,7 @@ export default {
   middleware: ['admin', 'check-auth'],
   data () {
     return {
+
       dataOrders: [],
       idOrder: '',
       idstatus: 0,
@@ -345,7 +346,6 @@ export default {
     },
     deleteItem (item) {
       this.dialogDelete = true
-      console.log(item)
       this.idOrder = item.id
     },
 

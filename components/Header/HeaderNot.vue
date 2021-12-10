@@ -227,7 +227,7 @@ export default {
     },
     GetCategory () {
       return new Promise((resolve, reject) => {
-        axios.get(' http://localhost:3004/category', {})
+        axios.get(`${process.env.baseURL}/category.json`, {})
           .then(({ data }) => {
             this.dataCategory = data
             resolve()

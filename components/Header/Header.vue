@@ -14,7 +14,7 @@
         color="white darken-2"
       >
         <v-tab to="/Homepage">
-          Trang Chủ
+          Homepage
         </v-tab>
         <v-tab>
           <v-menu offset-y>
@@ -26,7 +26,7 @@
                 v-bind="attrs"
                 v-on="on"
               >
-                <span style="color: white">Sản Phẩm</span>
+                <span style="color: white">Product</span>
               </v-btn>
             </template>
             <v-list>
@@ -45,15 +45,15 @@
           <img src="../../assets/images/cooltext393548465063270.png" alt="">
         </v-tab>
         <v-tab>
-          Tin Tức
+         News
         </v-tab>
         <v-tab>
-          Trợ giúp
+          Help
         </v-tab>
       </v-tabs>
       <MiniCart />
       <v-menu
-        v-if="$store.state.role === null"
+        v-if="token=== undefined"
         bottom
         min-width="200px"
         rounded
@@ -121,17 +121,35 @@
         <v-card>
           <v-list-item-content class="justify-center">
             <div class="mx-auto text-center">
-              <v-avatar
-                color="brown"
-                size="48"
+              <v-img
+                width="200"
+                src="https://cdn.vuetifyjs.com/images/cards/server-room.jpg"
               >
-                <img :src="dataUser.photoUrl" alt="">
-              </v-avatar>
-              <br>
-              <br>
-              <p>
-                {{ dataUser.displayName }}
-              </p>
+                <br>
+                <v-avatar
+                  class="profile"
+                  color="brown"
+                  size="80"
+                >
+                  <img :src="dataUser.photoUrl" alt="">
+                </v-avatar>
+
+                <br>
+                <br>
+                <p class="userName">
+                  {{ dataUser.displayName }}
+                </p>
+              </v-img>
+              <v-divider class="my-3" />
+
+              <v-btn
+                depressed
+                rounded
+                text
+                to="/editProfile"
+              >
+                Xem Đơn hàng
+              </v-btn>
               <v-divider class="my-3" />
               <v-btn
                 depressed
@@ -159,6 +177,7 @@
 </template>
 
 <script>
+import Cookies from 'js-cookie'
 import axios from 'axios'
 import MiniCart from '~/components/Header/Minicart/MiniCart'
 
@@ -166,6 +185,7 @@ export default {
   components: { MiniCart },
   data () {
     return {
+      token: null,
       dataCategory: [],
       dataUser: []
 
@@ -185,15 +205,20 @@ export default {
   methods: {
     getdataUser () {
       return new Promise((resolve, reject) => {
-        this.$axios.$post(`https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${process.env.fbApiKey}&idToken=${this.$store.state.token}`, {})
+        this.$axios.$post(`https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${process.env.fbApiKey}&idToken=${Cookies.get('token')}`, {})
           .then((data) => {
             this.dataUser = data.users[0]
             resolve()
           }).catch(error => reject(error))
       })
     },
+    toHomepage () {
+      this.$router.push('/homepage')
+    },
     onLogout () {
       this.$store.dispatch('logout')
+      this.token = Cookies.get('token')
+      this.toHomepage()
     },
     categoryOnclick (id) {
       this.$router.push({
@@ -203,7 +228,7 @@ export default {
     },
     GetCategory () {
       return new Promise((resolve, reject) => {
-        axios.get('http://localhost:3004/category', {})
+        axios.get(`${process.env.baseURL}/category.json`, {})
           .then(({ data }) => {
             this.dataCategory = data
             resolve()
@@ -214,7 +239,10 @@ export default {
 }
 </script>
 <style >
-
+  .userName{
+    color: white;
+    font-size: 20px;
+  }
   .btn-header{
     height: 64px!important;
     padding: 0px!important;

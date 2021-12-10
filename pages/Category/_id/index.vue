@@ -31,6 +31,8 @@
             >
               <div class="card shadow-sm">
                 <v-img
+                  height="285px"
+                  width="285px"
                   :src="product.image"
                 />
                 <div class="card-body">
@@ -63,7 +65,7 @@ export default {
   layout: 'clientLayoutsWithoutCarou',
   data () {
     return {
-      id: this.$route.params.id,
+      idCate: this.$route.params.id,
       dataCategory: [],
       dataProduct: []
     }
@@ -75,12 +77,12 @@ export default {
   },
   watch: {
     '$route' (to) {
-      this.id = to.params.id
+      this.idCate = to.params.id
     }
   },
   created () {
     this.GetDetailCategory()
-    this.GetProduct()
+    this.getProductbyCategory()
   },
   methods: {
     productOnclick (id) {
@@ -91,28 +93,35 @@ export default {
     },
     GetDetailCategory () {
       return new Promise((resolve, reject) => {
-        axios.get(`http://localhost:3004/category/${this.id}`)
+        axios.get(`${process.env.baseURL}/category/${this.idCate - 1}.json`, {})
           .then(({ data }) => {
             this.dataCategory = data
             resolve()
           }).catch(error => reject(error))
       })
     },
-    GetProduct () {
-      return new Promise((resolve, reject) => {
-        axios.get(`http://localhost:3004/product/?category=${this.id}`)
-          .then(({ data }) => {
-            this.dataProduct = data
-            resolve()
-          }).catch(error => reject(error))
-      })
+    getProductbyCategory () {
+      this.$axios.$get(`${process.env.baseURL}/product.json`)
+        .then((response) => {
+          const productsArray = []
+          for (const key in response) {
+            productsArray.push({
+              ...response[key],
+              id: key
+            })
+          }
+          const id = Number(this.idCate)
+          this.dataProduct = productsArray.filter(function (item) {
+            return item.category === id
+          })
+        })
     }
   }
 }
 </script>
 
 <style scoped>
-@import url('assets/css/app.css') ;
+@import url('../../../assets/css/app.css') ;
 .title {
   text-align: center;
   display: inherit;

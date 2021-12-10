@@ -5,6 +5,25 @@
       src="https://cdn.pixabay.com/photo/2019/09/30/15/22/shopping-cart-4516039_960_720.jpg"
     >
       <v-container>
+        <v-dialog v-model="dialogMassage" max-width="500">
+          <v-card class="align-center">
+            <br>
+            <h6>Thông báo</h6>
+            <hr>
+            <h3>Đăng nhập trước khi đặt đơn hàng</h3>
+            <v-img
+              style="margin-left: 40%"
+              width="100px"
+              src="https://www.nicepng.com/png/detail/362-3624869_icon-success-circle-green-tick-png.png"
+            />
+            <br>
+            <v-btn outlined color="red" to="/login">
+              Đăng nhập
+            </v-btn>
+            <br>
+            <br>
+          </v-card>
+        </v-dialog>
         <v-row>
           <v-col
             cols="12"
@@ -116,12 +135,13 @@
 
 <script>
 import { mdiDelete } from '@mdi/js'
-
+import Cookies from 'js-cookie'
 export default {
   name: 'Index',
   layout: 'clientLayoutsWithoutCarou',
   data () {
     return {
+      dialogMassage: false,
       dataUser: [],
       statusOrder: 'Chờ xác nhận',
       realprice: 0,
@@ -185,22 +205,26 @@ export default {
       this.$store.dispatch('removeProduct', product)
     },
     CreateOrder () {
-      this.cart.quantity = this.quantity
-      return new Promise((resolve, reject) => {
-        this.$axios.$post(`${process.env.baseURL}/order.json`,
-          {
-            name: this.dataUser.displayName,
-            email: this.dataUser.email,
-            avatar: this.dataUser.photoUrl,
-            status: this.statusOrder,
-            total: String(this.$store.getters.cartTotalPrice),
-            orderdetail: this.cart
-          }
-        )
-          .then(() => {
-            this.$store.dispatch('clearCart')
-          }).catch(error => reject(error))
-      })
+      if (Cookies.get('token') === undefined) {
+        this.dialogMassage = true
+      } else {
+        this.cart.quantity = this.quantity
+        return new Promise((resolve, reject) => {
+          this.$axios.$post(`${process.env.baseURL}/order.json`,
+            {
+              name: this.dataUser.displayName,
+              email: this.dataUser.email,
+              avatar: this.dataUser.photoUrl,
+              status: this.statusOrder,
+              total: String(this.$store.getters.cartTotalPrice),
+              orderdetail: this.cart
+            }
+          )
+            .then(() => {
+              this.$store.dispatch('clearCart')
+            }).catch(error => reject(error))
+        })
+      }
     }
   }
 }
@@ -250,5 +274,8 @@ export default {
   }
   .right{
     float: right;
+  }
+  .align-center{
+    text-align: center;
   }
 </style>
